@@ -25,15 +25,15 @@ ICE_SERVER_OVERRIDE = None
  ICE_SERVER_OVERRIDE  = [
    {
      "urls": [
-       "turn:192.168.10.199/IpToTurnServer:19305?transport=udp",
-       "turn:192.168.10.199/IpToTurnServer:19305?transport=tcp"
+       "turn:192.168.10.199:19305?transport=udp",
+       "turn:192.168.10.199:19305?transport=tcp"
      ],
      "username": "qnuapp",
      "credential": "qnuap2022"
    },
    {
      "urls": [
-       "stun:192.168.10.199/IpToStunServer:19302"
+       "stun:192.168.10.199:19302"
      ]
    }
 ]
