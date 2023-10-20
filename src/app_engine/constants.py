@@ -22,23 +22,23 @@ LOOPBACK_CLIENT_ID = 'LOOPBACK_CLIENT_ID'
 # directly rather than retrieving them from an ICE server provider.
 ICE_SERVER_OVERRIDE = None
 # Enable by uncomment below and comment out above, then specify turn and stun
-# ICE_SERVER_OVERRIDE  = [
-#   {
-#     "urls": [
-#       "turn:hostname/IpToTurnServer:19305?transport=udp",
-#       "turn:hostname/IpToTurnServer:19305?transport=tcp"
-#     ],
-#     "username": "TurnServerUsername",
-#     "credential": "TurnServerCredentials"
-#   },
-#   {
-#     "urls": [
-#       "stun:hostname/IpToStunServer:19302"
-#     ]
-#   }
-# ]
-
-ICE_SERVER_BASE_URL = 'https://appr.tc'
+ ICE_SERVER_OVERRIDE  = [
+   {
+     "urls": [
+       "turn:192.168.10.199/IpToTurnServer:19305?transport=udp",
+       "turn:192.168.10.199/IpToTurnServer:19305?transport=tcp"
+     ],
+     "username": "qnuapp",
+     "credential": "qnuap2022"
+   },
+   {
+     "urls": [
+       "stun:192.168.10.199/IpToStunServer:19302"
+     ]
+   }
+]
+IP=192.168.10.199
+ICE_SERVER_BASE_URL = 'https://IP'
 ICE_SERVER_URL_TEMPLATE = '%s/v1alpha/iceconfig?key=%s'
 ICE_SERVER_API_KEY = os.environ.get('ICE_SERVER_API_KEY')
 HEADER_MESSAGE = os.environ.get('HEADER_MESSAGE')
