@@ -37,8 +37,7 @@ ICE_SERVER_OVERRIDE  = [
      ]
    }
 ]
-IP=192.168.10.199
-ICE_SERVER_BASE_URL = 'https://IP'
+ICE_SERVER_BASE_URL = 'https://192.168.10.199'
 ICE_SERVER_URL_TEMPLATE = '%s/v1alpha/iceconfig?key=%s'
 ICE_SERVER_API_KEY = os.environ.get('ICE_SERVER_API_KEY')
 HEADER_MESSAGE = os.environ.get('HEADER_MESSAGE')
