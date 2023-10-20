@@ -22,7 +22,7 @@ LOOPBACK_CLIENT_ID = 'LOOPBACK_CLIENT_ID'
 # directly rather than retrieving them from an ICE server provider.
 ICE_SERVER_OVERRIDE = None
 # Enable by uncomment below and comment out above, then specify turn and stun
- ICE_SERVER_OVERRIDE  = [
+ICE_SERVER_OVERRIDE  = [
    {
      "urls": [
        "turn:192.168.10.199:19305?transport=udp",
