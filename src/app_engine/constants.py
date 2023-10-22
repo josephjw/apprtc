@@ -25,19 +25,19 @@ ICE_SERVER_OVERRIDE = None
 ICE_SERVER_OVERRIDE  = [
    {
      "urls": [
-       "turn:192.168.10.199:19305?transport=udp",
-       "turn:192.168.10.199:19305?transport=tcp"
+       "turn:ec2-65-2-70-90.ap-south-1.compute.amazonaws.com:19305?transport=udp",
+       "turn:ec2-65-2-70-90.ap-south-1.compute.amazonaws.com:19305?transport=tcp"
      ],
      "username": "qnuapp",
      "credential": "qnuap2022"
    },
    {
      "urls": [
-       "stun:192.168.10.199:19302"
+       "stun:ec2-65-2-70-90.ap-south-1.compute.amazonaws.com:19302"
      ]
    }
 ]
-ICE_SERVER_BASE_URL = 'https://192.168.10.199'
+ICE_SERVER_BASE_URL = 'https://ec2-65-2-70-90.ap-south-1.compute.amazonaws.com'
 ICE_SERVER_URL_TEMPLATE = '%s/v1alpha/iceconfig?key=%s'
 ICE_SERVER_API_KEY = os.environ.get('ICE_SERVER_API_KEY')
 HEADER_MESSAGE = os.environ.get('HEADER_MESSAGE')
