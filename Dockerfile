@@ -59,7 +59,7 @@ RUN echo -e "foreground=yes\n" > /usr/etc/stunnel/stunnel.conf \
     && echo -e "[AppRTC GAE]\n" >> /usr/etc/stunnel/stunnel.conf \ 
     && echo -e "accept=0.0.0.0:443\n" >> /usr/etc/stunnel/stunnel.conf \
     && echo -e "connect=0.0.0.0:8080\n" >> /usr/etc/stunnel/stunnel.conf \
-    && echo -e "cert=`pwd`/apprtc/ca.cert.pem\n" >> /usr/etc/stunnel/stunnel.conf 
+    && echo -e "cert= ca.cert.pem\n" >> /usr/etc/stunnel/stunnel.conf 
 
 RUN echo -e  "/usr/bin/stunnel &\n" >> /go/start.sh \
     && echo -e "wait -n\n" >> /go/start.sh \
