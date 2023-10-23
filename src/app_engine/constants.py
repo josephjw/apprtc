@@ -11,7 +11,7 @@ REDIRECT_DOMAINS =  [
   'apprtc.appspot.com', 'apprtc.webrtc.org', 'www.appr.tc'
 ]
 # URL which we should redirect to if matching in REDIRECT_DOMAINS.
-REDIRECT_URL = 'https://ec2-65-2-70-90.ap-south-1.compute.amazonaws.com'
+REDIRECT_URL = '202.81.17.121'
 
 ROOM_MEMCACHE_EXPIRATION_SEC = 60 * 60 * 24
 MEMCACHE_RETRY_LIMIT = 100
@@ -20,39 +20,39 @@ LOOPBACK_CLIENT_ID = 'LOOPBACK_CLIENT_ID'
 
 # Turn/Stun server override. This allows AppRTC to connect to turn servers
 # directly rather than retrieving them from an ICE server provider.
-ICE_SERVER_OVERRIDE = None
+#ICE_SERVER_OVERRIDE = None
 # Enable by uncomment below and comment out above, then specify turn and stun
 ICE_SERVER_OVERRIDE  = [
    {
      "urls": [
-       "turn:ec2-65-2-70-90.ap-south-1.compute.amazonaws.com:19305?transport=udp",
-       "turn:ec2-65-2-70-90.ap-south-1.compute.amazonaws.com:19305?transport=tcp"
+       "turn:turn.202.81.17.121:3478",
+       "turn:202.81.17.121:19305?transport=tcp"
      ],
      "username": "qnuapp",
      "credential": "qnuap2022"
    },
    {
      "urls": [
-       "stun:ec2-65-2-70-90.ap-south-1.compute.amazonaws.com:19302"
+       "stun:stun.l.google.com:19302"
      ]
    }
 ]
-ICE_SERVER_BASE_URL = 'https://ec2-65-2-70-90.ap-south-1.compute.amazonaws.com'
-ICE_SERVER_URL_TEMPLATE = '%s/v1alpha/iceconfig?key=%s'
-ICE_SERVER_API_KEY = os.environ.get('ICE_SERVER_API_KEY')
+ICE_SERVER_BASE_URL = ''
+ICE_SERVER_URL_TEMPLATE = ''
+ICE_SERVER_API_KEY =""
 HEADER_MESSAGE = os.environ.get('HEADER_MESSAGE')
 ICE_SERVER_URLS = [url for url in os.environ.get('ICE_SERVER_URLS', '').split(',') if url]
 
 # Dictionary keys in the collider instance info constant.
-WSS_INSTANCE_HOST_KEY = 'host_port_pair'
+WSS_INSTANCE_HOST_KEY = '202.81.17.121:8089'
 WSS_INSTANCE_NAME_KEY = 'vm_name'
 WSS_INSTANCE_ZONE_KEY = 'zone'
 WSS_INSTANCES = [{
-    WSS_INSTANCE_HOST_KEY: 'apprtc-ws.webrtc.org:443',
+    WSS_INSTANCE_HOST_KEY: '202.81.17.121:8089',
     WSS_INSTANCE_NAME_KEY: 'wsserver-std',
     WSS_INSTANCE_ZONE_KEY: 'us-central1-a'
 }, {
-    WSS_INSTANCE_HOST_KEY: 'apprtc-ws-2.webrtc.org:443',
+    WSS_INSTANCE_HOST_KEY: '202.81.17.121:8089',
     WSS_INSTANCE_NAME_KEY: 'wsserver-std-2',
     WSS_INSTANCE_ZONE_KEY: 'us-central1-f'
 }]
