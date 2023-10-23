@@ -36,7 +36,7 @@ RUN ln -s `pwd`/apprtc/src/collider/collidermain $GOPATH/src \
     && go install collidermain
 
 # Add Collider executable to the start.sh bash script.
-RUN echo -e "$GOPATH/bin/collidermain -port=8089 -tls=true -room-server=http://localhost &\n" >> /go/start.sh
+RUN echo -e "$GOPATH/bin/collidermain -port=8089 -tls=false -room-server=http://localhost &\n" >> /go/start.sh
 
 ENV STUNNEL_VERSION 5.60
 
@@ -46,14 +46,14 @@ RUN curl  https://www.stunnel.org/archive/5.x/stunnel-${STUNNEL_VERSION}.tar.gz 
 WORKDIR /usr/src/stunnel-${STUNNEL_VERSION}
 RUN ./configure --prefix=/usr && make && make install
 
-# RUN mkdir /cert
-# RUN openssl req -x509 -out /cert/cert.crt -keyout /cert/key.pem \
-#   -newkey rsa:2048 -nodes -sha256 \
-#   -subj '/CN=localhost' -extensions EXT -config <( \
-#    printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth") \
-#   && cat /cert/key.pem > /cert/cert.pem \
-#   && cat /cert/cert.crt >> /cert/cert.pem \
-#   && chmod 600 /cert/cert.pem /cert/key.pem /cert/cert.crt
+RUN mkdir /cert
+RUN openssl req -x509 -out /cert/cert.crt -keyout /cert/key.pem \
+  -newkey rsa:2048 -nodes -sha256 \
+  -subj '/CN=localhost' -extensions EXT -config <( \
+   printf "[dn]\nCN=localhost\n[req]\ndistinguished_name = dn\n[EXT]\nsubjectAltName=DNS:localhost\nkeyUsage=digitalSignature\nextendedKeyUsage=serverAuth") \
+  && cat /cert/key.pem > /cert/cert.pem \
+  && cat /cert/cert.crt >> /cert/cert.pem \
+  && chmod 600 /cert/cert.pem /cert/key.pem /cert/cert.crt
 
 RUN echo -e "foreground=yes\n" > /usr/etc/stunnel/stunnel.conf \
     && echo -e "[AppRTC GAE]\n" >> /usr/etc/stunnel/stunnel.conf \ 
