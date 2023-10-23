@@ -11,7 +11,7 @@ REDIRECT_DOMAINS =  [
   'apprtc.appspot.com', 'apprtc.webrtc.org', 'www.appr.tc'
 ]
 # URL which we should redirect to if matching in REDIRECT_DOMAINS.
-REDIRECT_URL = 'https://appr.tc'
+REDIRECT_URL = 'https://ec2-65-2-70-90.ap-south-1.compute.amazonaws.com'
 
 ROOM_MEMCACHE_EXPIRATION_SEC = 60 * 60 * 24
 MEMCACHE_RETRY_LIMIT = 100
